@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/Alumno/Downloads/index%20(2).html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASHER DAVE REMY — STREETWEAR PORTFOLIO</title>
+    <link href="./ASHER DAVE REMY — STREETWEAR PORTFOLIO_files/css2" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111111;
+            --text: #f5f5f5;
+            --muted: #888888;
+            --accent: #e8e4dc;
+            --accent-warm: #c4a882;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--text);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(245, 245, 245, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        .cursor.hover {
+            transform: scale(2);
+        }
+
+        .cursor-follower.hover {
+            width: 60px;
+            height: 60px;
+            border-color: rgba(245, 245, 245, 0.6);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(196, 168, 130, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(232, 228, 220, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease 0.5s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: var(--text);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+        }
+
+        .hero-title span {
+            display: block;
+            font-weight: 300;
+            font-size: 0.6em;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--muted);
+            margin-top: 3rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.4s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 2s forwards;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--muted), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        /* About Section */
+        .about {
+            padding: 10rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(1.1);
+            transition: filter 0.6s ease, transform 0.6s ease;
+        }
+
+        .about-image:hover img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.03);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+        }
+
+        .about-content h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 span {
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-item h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .stat-item p {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Marquee Brands */
+        .brands {
+            padding: 5rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .brands-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .brands-header p {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 0 3rem;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .marquee-item:hover {
+            color: var(--text);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Portfolio Grid */
+        .portfolio {
+            padding: 10rem 4rem 6rem;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 3/4;
+            background: var(--surface);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) contrast(1.05);
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay h3 {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay p {
+            transform: translateY(0);
+        }
+
+        .portfolio-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+
+        /* Lookbook */
+        .lookbook {
+            padding: 10rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .lookbook-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .lookbook-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .lookbook-header p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            margin-top: 1rem;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .lookbook-item {
+            aspect-ratio: 3/4;
+            background: var(--surface);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+
+        .lookbook-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 10rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-location {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-links a {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--text);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+
+        .contact-links a:hover {
+            color: var(--bg);
+        }
+
+        .contact-links a:hover::before {
+            transform: translateY(0);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scaleY(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scaleY(1.2);
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grain Effect */
+        .grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9990;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 1px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item.wide {
+                grid-column: span 2;
+            }
+
+            .lookbook-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .about,
+            .portfolio,
+            .lookbook,
+            .contact {
+                padding: 6rem 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item.wide {
+                grid-column: span 1;
+                aspect-ratio: 3/4;
+            }
+
+            .lookbook-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .cursor,
+            .cursor-follower {
+                display: none;
+            }
+
+            body {
+                cursor: auto;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(196, 168, 130, 0.3);
+            color: var(--text);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" style="left: 599.196px; top: 290.068px;"></div>
+    <div class="cursor-follower" style="left: 700.044px; top: 226.397px;"></div>
+
+    <!-- Film Grain Overlay -->
+    <div class="grain"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">ASHER DAVE REMY</div>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#brands">Marcas</a></li>
+            <li><a href="#portfolio">Portafolio</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" style="transform: translateY(0px);"></div>
+        <div class="hero-content">
+            <p class="hero-label">Streetwear Model — Santiago, Chile</p>
+            <h1 class="hero-title">
+                ASHER
+                <span>Dave Remy — Portafolio 2026</span>
+            </h1>
+            <p class="hero-subtitle">Identidad genuina. Estética con carácter propio.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-image reveal active">
+            <img src="https://via.placeholder.com/400x500?text=Asher+Photo" alt="Asher Dave Remy">
+        </div>
+        <div class="about-content reveal active">
+            <h2>Sobre <span>Mi</span></h2>
+            <p class="about-text">
+                Más que seguir tendencias, busco proyectar una identidad genuina donde convergen la estética, 
+                el diseño de indumentaria y la disciplina diaria. Cada prenda y cada proyecto reflejan un proceso 
+                de construcción consciente: atención al detalle, consistencia y una propuesta visual con carácter propio.
+            </p>
+            <p class="about-text">
+                Se trata de comunicar quién soy y hacia dónde voy a través de un trabajo honesto y con proyección. 
+                Basado en Santiago de Chile, disponible para colaboraciones, editoriales, campañas y proyectos creativos.
+            </p>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>178 CM</h3>
+                    <p>Altura</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40 / 44</h3>
+                    <p>Talla</p>
+                </div>
+                <div class="stat-item">
+                    <h3>66 KG</h3>
+                    <p>Peso</p>
+                </div>
+                <div class="stat-item">
+                    <h3>43</h3>
+                    <p>Calzado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Marquee -->
+    <section id="brands" class="brands">
+        <div class="brands-header reveal active">
+            <p>Colaboraciones &amp; Marcas</p>
+        </div>
+        <div class="marquee-track">
+            <span class="marquee-item">BEARYSAD</span>
+            <span class="marquee-item">VANS CHILE</span>
+            <span class="marquee-item">NOVORICH.CL</span>
+            <span class="marquee-item">FLUYE SALON</span>
+            <span class="marquee-item">OOFSIDE</span>
+            <span class="marquee-item">4PASAY</span>
+            <span class="marquee-item">NASCREATIVA</span>
+            <span class="marquee-item">BLANCO STUDIO</span>
+            <span class="marquee-item">SHALEX</span>
+            <span class="marquee-item">RESERVERD.CL</span>
+            <span class="marquee-item">REPRESENT</span>
+            <span class="marquee-item">DARKIU</span>
+            <span class="marquee-item">STANDLY</span>
+            <span class="marquee-item">WAAAXZ.PX</span>
+            <span class="marquee-item">SOUTH COAST</span>
+            <span class="marquee-item">HOPE</span>
+            <span class="marquee-item">DAPK</span>
+            <span class="marquee-item">GO MODELS</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="marquee-item">BEARYSAD</span>
+            <span class="marquee-item">VANS CHILE</span>
+            <span class="marquee-item">NOVORICH.CL</span>
+            <span class="marquee-item">FLUYE SALON</span>
+            <span class="marquee-item">OOFSIDE</span>
+            <span class="marquee-item">4PASAY</span>
+            <span class="marquee-item">NASCREATIVA</span>
+            <span class="marquee-item">BLANCO STUDIO</span>
+            <span class="marquee-item">SHALEX</span>
+            <span class="marquee-item">RESERVERD.CL</span>
+            <span class="marquee-item">REPRESENT</span>
+            <span class="marquee-item">DARKIU</span>
+            <span class="marquee-item">STANDLY</span>
+            <span class="marquee-item">WAAAXZ.PX</span>
+            <span class="marquee-item">SOUTH COAST</span>
+            <span class="marquee-item">HOPE</span>
+            <span class="marquee-item">DAPK</span>
+            <span class="marquee-item">GO MODELS</span>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section id="portfolio" class="portfolio">
+        <div class="section-header reveal active">
+            <h2>Portafolio</h2>
+            <p>Selección de trabajos recientes</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Portfolio+01" alt="Portfolio 01">
+                <div class="portfolio-overlay">
+                    <h3>FLUYE SALON</h3>
+                    <p>Campaña / 2025</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Portfolio+02" alt="Portfolio 02">
+                <div class="portfolio-overlay">
+                    <h3>FLUYE SALON</h3>
+                    <p>Campaña / 2025</p>
+                </div>
+            </div>
+            <div class="portfolio-item wide reveal active">
+                <img src="https://via.placeholder.com/800x450?text=Portfolio+03" alt="Portfolio 03">
+                <div class="portfolio-overlay">
+                    <h3>FLUYE SALON</h3>
+                    <p>Campaña / 2026</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Portfolio+04" alt="Portfolio 04">
+                <div class="portfolio-overlay">
+                    <h3>BLANCO STUDIO</h3>
+                    <p>Campaña / 2026</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Portfolio+05" alt="Portfolio 05">
+                <div class="portfolio-overlay">
+                    <h3>FLUYE SALON</h3>
+                    <p>Campaña / 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook -->
+    <section id="lookbook" class="lookbook">
+        <div class="lookbook-header reveal active">
+            <h2>Lookbook</h2>
+            <p>Estilo, referencias y sesiones</p>
+        </div>
+        <div class="lookbook-grid">
+            <div class="lookbook-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Lookbook+01" alt="Lookbook 01">
+            </div>
+            <div class="lookbook-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Lookbook+02" alt="Lookbook 02">
+            </div>
+            <div class="lookbook-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Lookbook+03" alt="Lookbook 03">
+            </div>
+            <div class="lookbook-item reveal active">
+                <img src="https://via.placeholder.com/400x500?text=Lookbook+04" alt="Lookbook 04">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <p class="contact-location reveal active">Santiago de Chile — Disponible Lun a Vie AM / PM</p>
+        <h2 class="reveal active">Trabajemos<br>Juntos</h2>
+        <p class="reveal active">
+            ¿Tienes un proyecto en mente? Estoy abierto a colaboraciones, 
+            editoriales, campañas y desfiles. Hablemos de cómo podemos crear algo único.
+        </p>
+        <div class="contact-links reveal active">
+            <a href="mailto:remyjeandeave@gmail.com">Email</a>
+            <a href="https://www.instagram.com/mxrenito_asher?igsh=MXhscTRudHE3ajVubg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+        </div>
+        <div class="social-links reveal active">
+            <a href="https://www.instagram.com/mxrenito_asher?igsh=MXhscTRudHE3ajVubg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@asher__07?_r=1&_t=ZS-98Tx02ubRw0" target="_blank">TikTok</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>ASHER DAVE REMY</span>
+        <span>All Rights Reserved</span>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+
+            cursor.style.left = cursorX - 6 + 'px';
+            cursor.style.top = cursorY - 6 + 'px';
+            follower.style.left = followerX - 20 + 'px';
+            follower.style.top = followerY - 20 + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effect on interactive elements
+        const interactiveElements = document.querySelectorAll('a, .portfolio-item, .lookbook-item');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                follower.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                follower.classList.remove('hover');
+            });
+        });
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Parallax effect on hero
+        const heroBg = document.querySelector('.hero-bg');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Menu toggle (mobile)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'fixed';
+                navLinks.style.inset = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.justifyContent = 'center';
+                navLinks.style.alignItems = 'center';
+                navLinks.style.background = 'rgba(10, 10, 10, 0.95)';
+                navLinks.style.backdropFilter = 'blur(10px)';
+                navLinks.style.zIndex = '150';
+                navLinks.style.gap = '2rem';
+            }
+        });
+    </script>
+
+</body></html>    
