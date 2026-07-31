@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0050)file:///C:/Users/Alumno/Downloads/index%20(2).html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASHER DAVE REMY — STREETWEAR PORTFOLIO</title>
-    <link href="./ASHER DAVE REMY — STREETWEAR PORTFOLIO_files/css2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -280,7 +280,7 @@
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-top: 3rem;
             padding-top: 2rem;
@@ -349,12 +349,8 @@
         }
 
         @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* Portfolio Grid */
@@ -678,118 +674,42 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .about {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .portfolio-item.wide {
-                grid-column: span 2;
-            }
-
-            .lookbook-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .about { grid-template-columns: 1fr; gap: 4rem; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 1.5rem 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .about,
-            .portfolio,
-            .lookbook,
-            .contact {
-                padding: 6rem 2rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-item.wide {
-                grid-column: span 1;
-                aspect-ratio: 3/4;
-            }
-
-            .lookbook-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-                padding: 2rem;
-            }
-
-            .cursor,
-            .cursor-follower {
-                display: none;
-            }
-
-            body {
-                cursor: auto;
-            }
+            nav { padding: 1.5rem 2rem; }
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            .about, .portfolio, .lookbook, .contact { padding: 6rem 2rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-item.wide { grid-column: span 1; aspect-ratio: 3/4; }
+            .lookbook-grid { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; gap: 1.5rem; }
+            .contact-links { flex-direction: column; gap: 1rem; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+            .cursor, .cursor-follower { display: none; }
+            body { cursor: auto; }
         }
 
-        /* Selection */
         ::selection {
             background: rgba(196, 168, 130, 0.3);
             color: var(--text);
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #444;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444; }
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" style="left: 599.196px; top: 290.068px;"></div>
-    <div class="cursor-follower" style="left: 700.044px; top: 226.397px;"></div>
-
-    <!-- Film Grain Overlay -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
     <div class="grain"></div>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo">ASHER DAVE REMY</div>
         <ul class="nav-links">
@@ -806,9 +726,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg" style="transform: translateY(0px);"></div>
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <p class="hero-label">Streetwear Model — Santiago, Chile</p>
             <h1 class="hero-title">
@@ -823,12 +742,11 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
-        <div class="about-image reveal active">
+        <div class="about-image reveal">
             <img src="https://via.placeholder.com/400x500?text=Asher+Photo" alt="Asher Dave Remy">
         </div>
-        <div class="about-content reveal active">
+        <div class="about-content reveal">
             <h2>Sobre <span>Mi</span></h2>
             <p class="about-text">
                 Más que seguir tendencias, busco proyectar una identidad genuina donde convergen la estética, 
@@ -840,170 +758,99 @@
                 Basado en Santiago de Chile, disponible para colaboraciones, editoriales, campañas y proyectos creativos.
             </p>
             <div class="stats">
-                <div class="stat-item">
-                    <h3>178 CM</h3>
-                    <p>Altura</p>
-                </div>
-                <div class="stat-item">
-                    <h3>40 / 44</h3>
-                    <p>Talla</p>
-                </div>
-                <div class="stat-item">
-                    <h3>66 KG</h3>
-                    <p>Peso</p>
-                </div>
-                <div class="stat-item">
-                    <h3>43</h3>
-                    <p>Calzado</p>
-                </div>
+                <div class="stat-item"><h3>178 CM</h3><p>Altura</p></div>
+                <div class="stat-item"><h3>40 / 44</h3><p>Talla</p></div>
+                <div class="stat-item"><h3>66 KG</h3><p>Peso</p></div>
+                <div class="stat-item"><h3>43</h3><p>Calzado</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Brands Marquee -->
     <section id="brands" class="brands">
-        <div class="brands-header reveal active">
+        <div class="brands-header reveal">
             <p>Colaboraciones &amp; Marcas</p>
         </div>
         <div class="marquee-track">
-            <span class="marquee-item">BEARYSAD</span>
-            <span class="marquee-item">VANS CHILE</span>
-            <span class="marquee-item">NOVORICH.CL</span>
-            <span class="marquee-item">FLUYE SALON</span>
-            <span class="marquee-item">OOFSIDE</span>
-            <span class="marquee-item">4PASAY</span>
-            <span class="marquee-item">NASCREATIVA</span>
-            <span class="marquee-item">BLANCO STUDIO</span>
-            <span class="marquee-item">SHALEX</span>
-            <span class="marquee-item">RESERVERD.CL</span>
-            <span class="marquee-item">REPRESENT</span>
-            <span class="marquee-item">DARKIU</span>
-            <span class="marquee-item">STANDLY</span>
-            <span class="marquee-item">WAAAXZ.PX</span>
-            <span class="marquee-item">SOUTH COAST</span>
-            <span class="marquee-item">HOPE</span>
-            <span class="marquee-item">DAPK</span>
-            <span class="marquee-item">GO MODELS</span>
-            <!-- Duplicate for seamless loop -->
-            <span class="marquee-item">BEARYSAD</span>
-            <span class="marquee-item">VANS CHILE</span>
-            <span class="marquee-item">NOVORICH.CL</span>
-            <span class="marquee-item">FLUYE SALON</span>
-            <span class="marquee-item">OOFSIDE</span>
-            <span class="marquee-item">4PASAY</span>
-            <span class="marquee-item">NASCREATIVA</span>
-            <span class="marquee-item">BLANCO STUDIO</span>
-            <span class="marquee-item">SHALEX</span>
-            <span class="marquee-item">RESERVERD.CL</span>
-            <span class="marquee-item">REPRESENT</span>
-            <span class="marquee-item">DARKIU</span>
-            <span class="marquee-item">STANDLY</span>
-            <span class="marquee-item">WAAAXZ.PX</span>
-            <span class="marquee-item">SOUTH COAST</span>
-            <span class="marquee-item">HOPE</span>
-            <span class="marquee-item">DAPK</span>
-            <span class="marquee-item">GO MODELS</span>
+            <span class="marquee-item">BEARYSAD</span><span class="marquee-item">VANS CHILE</span><span class="marquee-item">NOVORICH.CL</span><span class="marquee-item">FLUYE SALON</span><span class="marquee-item">OOFSIDE</span><span class="marquee-item">4PASAY</span><span class="marquee-item">NASCREATIVA</span><span class="marquee-item">BLANCO STUDIO</span><span class="marquee-item">SHALEX</span><span class="marquee-item">RESERVERD.CL</span><span class="marquee-item">REPRESENT</span><span class="marquee-item">DARKIU</span><span class="marquee-item">STANDLY</span><span class="marquee-item">WAAAXZ.PX</span><span class="marquee-item">SOUTH COAST</span><span class="marquee-item">HOPE</span><span class="marquee-item">DAPK</span><span class="marquee-item">GO MODELS</span><span class="marquee-item">BEARYSAD</span><span class="marquee-item">VANS CHILE</span><span class="marquee-item">NOVORICH.CL</span><span class="marquee-item">FLUYE SALON</span><span class="marquee-item">OOFSIDE</span><span class="marquee-item">4PASAY</span><span class="marquee-item">NASCREATIVA</span><span class="marquee-item">BLANCO STUDIO</span><span class="marquee-item">SHALEX</span><span class="marquee-item">RESERVERD.CL</span><span class="marquee-item">REPRESENT</span><span class="marquee-item">DARKIU</span><span class="marquee-item">STANDLY</span><span class="marquee-item">WAAAXZ.PX</span><span class="marquee-item">SOUTH COAST</span><span class="marquee-item">HOPE</span><span class="marquee-item">DAPK</span><span class="marquee-item">GO MODELS</span>
         </div>
     </section>
 
-    <!-- Portfolio Grid -->
     <section id="portfolio" class="portfolio">
-        <div class="section-header reveal active">
+        <div class="section-header reveal">
             <h2>Portafolio</h2>
             <p>Selección de trabajos recientes</p>
         </div>
         <div class="portfolio-grid">
-            <div class="portfolio-item reveal active">
+            <div class="portfolio-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Portfolio+01" alt="Portfolio 01">
-                <div class="portfolio-overlay">
-                    <h3>FLUYE SALON</h3>
-                    <p>Campaña / 2025</p>
-                </div>
+                <div class="portfolio-overlay"><h3>FLUYE SALON</h3><p>Campaña / 2025</p></div>
             </div>
-            <div class="portfolio-item reveal active">
+            <div class="portfolio-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Portfolio+02" alt="Portfolio 02">
-                <div class="portfolio-overlay">
-                    <h3>FLUYE SALON</h3>
-                    <p>Campaña / 2025</p>
-                </div>
+                <div class="portfolio-overlay"><h3>FLUYE SALON</h3><p>Campaña / 2025</p></div>
             </div>
-            <div class="portfolio-item wide reveal active">
+            <div class="portfolio-item wide reveal">
                 <img src="https://via.placeholder.com/800x450?text=Portfolio+03" alt="Portfolio 03">
-                <div class="portfolio-overlay">
-                    <h3>FLUYE SALON</h3>
-                    <p>Campaña / 2026</p>
-                </div>
+                <div class="portfolio-overlay"><h3>FLUYE SALON</h3><p>Campaña / 2026</p></div>
             </div>
-            <div class="portfolio-item reveal active">
+            <div class="portfolio-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Portfolio+04" alt="Portfolio 04">
-                <div class="portfolio-overlay">
-                    <h3>BLANCO STUDIO</h3>
-                    <p>Campaña / 2026</p>
-                </div>
+                <div class="portfolio-overlay"><h3>BLANCO STUDIO</h3><p>Campaña / 2026</p></div>
             </div>
-            <div class="portfolio-item reveal active">
+            <div class="portfolio-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Portfolio+05" alt="Portfolio 05">
-                <div class="portfolio-overlay">
-                    <h3>FLUYE SALON</h3>
-                    <p>Campaña / 2026</p>
-                </div>
+                <div class="portfolio-overlay"><h3>FLUYE SALON</h3><p>Campaña / 2026</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Lookbook -->
     <section id="lookbook" class="lookbook">
-        <div class="lookbook-header reveal active">
+        <div class="lookbook-header reveal">
             <h2>Lookbook</h2>
             <p>Estilo, referencias y sesiones</p>
         </div>
         <div class="lookbook-grid">
-            <div class="lookbook-item reveal active">
+            <div class="lookbook-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Lookbook+01" alt="Lookbook 01">
             </div>
-            <div class="lookbook-item reveal active">
+            <div class="lookbook-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Lookbook+02" alt="Lookbook 02">
             </div>
-            <div class="lookbook-item reveal active">
+            <div class="lookbook-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Lookbook+03" alt="Lookbook 03">
             </div>
-            <div class="lookbook-item reveal active">
+            <div class="lookbook-item reveal">
                 <img src="https://via.placeholder.com/400x500?text=Lookbook+04" alt="Lookbook 04">
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="contact">
-        <p class="contact-location reveal active">Santiago de Chile — Disponible Lun a Vie AM / PM</p>
-        <h2 class="reveal active">Trabajemos<br>Juntos</h2>
-        <p class="reveal active">
+        <p class="contact-location reveal">Santiago de Chile — Disponible Lun a Vie AM / PM</p>
+        <h2 class="reveal">Trabajemos<br>Juntos</h2>
+        <p class="reveal">
             ¿Tienes un proyecto en mente? Estoy abierto a colaboraciones, 
             editoriales, campañas y desfiles. Hablemos de cómo podemos crear algo único.
         </p>
-        <div class="contact-links reveal active">
+        <div class="contact-links reveal">
             <a href="mailto:remyjeandeave@gmail.com">Email</a>
             <a href="https://www.instagram.com/mxrenito_asher?igsh=MXhscTRudHE3ajVubg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
         </div>
-        <div class="social-links reveal active">
+        <div class="social-links reveal">
             <a href="https://www.instagram.com/mxrenito_asher?igsh=MXhscTRudHE3ajVubg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
             <a href="https://www.tiktok.com/@asher__07?_r=1&_t=ZS-98Tx02ubRw0" target="_blank">TikTok</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <span>ASHER DAVE REMY</span>
         <span>All Rights Reserved</span>
     </footer>
 
     <script>
-        // Custom Cursor
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let followerX = 0, followerY = 0;
+        let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, followerX = 0, followerY = 0;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -1025,7 +872,6 @@
         }
         animateCursor();
 
-        // Hover effect on interactive elements
         const interactiveElements = document.querySelectorAll('a, .portfolio-item, .lookbook-item');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -1038,7 +884,6 @@
             });
         });
 
-        // Scroll Reveal
         const reveals = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1047,40 +892,26 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         reveals.forEach(el => revealObserver.observe(el));
 
-        // Parallax effect on hero
         const heroBg = document.querySelector('.hero-bg');
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            if (heroBg) {
-                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
+            if (heroBg) heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
         });
 
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Menu toggle (mobile)
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
         menuToggle.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
             if (navLinks.style.display === 'flex') {
@@ -1096,5 +927,5 @@
             }
         });
     </script>
-
-</body></html>    
+</body>
+</html>
